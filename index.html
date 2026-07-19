@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Slab Survival</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="ui-container">
+        <div id="top-ui">
+            <div id="score-board">Time: <span id="score">0</span>s</div>
+            <div id="height-meter">Height: <span id="height">0</span>m</div>
+            <div id="speed-indicators">
+                <div id="speed-x1" class="speed-badge active">x1</div>
+                <div id="speed-x2" class="speed-badge">x2</div>
+                <div id="speed-x20" class="speed-badge hidden">x20</div>
+            </div>
+        </div>
+        <div id="volume-container">
+            <label for="volume-slider">VOL</label>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5">
+        </div>
+        <div id="height-diff-container">
+            <label id="height-diff-label" for="height-diff-slider">10</label>
+            <input type="range" id="height-diff-slider" min="1" max="20" step="1" value="10">
+        </div>
+        <div id="double-jump-ui">
+            <span class="label">DOUBLE</span>
+            <div class="toggle-group">
+                <div id="dj-on" class="toggle-badge">ON</div>
+                <div id="dj-off" class="toggle-badge active">OFF</div>
+            </div>
+            <div class="key-hint">J</div>
+        </div>
+        <div id="god-mode-ui">
+            <span class="label">GOD</span>
+            <div class="toggle-group">
+                <div id="gm-on" class="toggle-badge">ON</div>
+                <div id="gm-off" class="toggle-badge active">OFF</div>
+            </div>
+            <div class="key-hint">G</div>
+        </div>
+        <div id="auto-camera-ui">
+            <span class="label">AUTO CAM</span>
+            <div class="toggle-group">
+                <div id="ac-on" class="toggle-badge">ON</div>
+                <div id="ac-off" class="toggle-badge active">OFF</div>
+            </div>
+            <div class="key-hint">C</div>
+        </div>
+        <div id="event-banner" class="hidden">
+            <div id="event-text">WARNING: EVENT INCOMING</div>
+        </div>
+        <div id="game-over-screen" class="hidden">
+            <h1>GAME OVER</h1>
+            <p>You survived for <span id="final-score">0</span> seconds.</p>
+            <button id="restart-btn">Try Again</button>
+        </div>
+        <div id="pause-overlay" class="hidden">
+            <h1>PAUSED</h1>
+            <p>Press SPACE to Resume</p>
+        </div>
+        <div id="controls-hint">
+            <span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span>
+            Move <br>
+            <span class="key">↑</span><span class="key">↓</span><span class="key">←</span><span class="key">→</span>
+            Camera
+        </div>
+
+        <!-- Mobile Controls -->
+        <div id="mobile-controls" class="hidden">
+            <div id="mobile-dpad">
+                <button id="btn-up" class="mobile-btn">W</button>
+                <div class="dpad-horizontal">
+                    <button id="btn-left" class="mobile-btn">A</button>
+                    <button id="btn-down" class="mobile-btn">S</button>
+                    <button id="btn-right" class="mobile-btn">D</button>
+                </div>
+            </div>
+            <div id="mobile-actions">
+                <button id="btn-ascend" class="mobile-btn special">I</button>
+                <div class="action-group">
+                    <button id="btn-rot-left" class="mobile-btn">L</button>
+                    <button id="btn-rot-right" class="mobile-btn">R</button>
+                </div>
+                <button id="btn-pause" class="mobile-btn">P</button>
+            </div>
+        </div>
+    </div>
+    <div id="app"></div>
+    <script type="module">
+        import { Game } from './src/Game.js';
+        window.game = new Game();
+    </script>
+</body>
+
+</html>
